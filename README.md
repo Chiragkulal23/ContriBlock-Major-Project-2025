@@ -15,4 +15,4 @@ It uses a **Flask REST backend** with a **Vite/React frontend** and integrates *
 - **Backend:** Python, Flask, SQLAlchemy
 - **Frontend:** React, Vite, Tailwind
 - **Blockchain:** Smart contracts, IPFS (Pinata)
-- **Other:** EmailJS for OTP verification
+- **Other:** EmailJS for OTP verification.
