@@ -1,0 +1,506 @@
+# MyContri Platform - Complete Flow Diagram
+## Visual Guide to System Workflow
+
+---
+
+## 🔄 **COMPLETE SYSTEM FLOW**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    LANDING PAGE                                 │
+│              (http://localhost:5173)                            │
+│  • Platform overview                                            │
+│  • Feature highlights                                           │
+│  • Sign Up / Login buttons                                      │
+└─────────────────────────────────────────────────────────────────┘
+                            │
+                            ▼
+        ┌───────────────────┴───────────────────┐
+        │                                       │
+        ▼                                       ▼
+┌───────────────┐                    ┌───────────────┐
+│   SIGN UP     │                    │    LOGIN      │
+│  New User     │                    │ Existing User │
+└───────────────┘                    └───────────────┘
+        │                                       │
+        └───────────┬───────────────────────────┘
+                    ▼
+        ┌───────────────────────┐
+        │   USER DASHBOARD      │
+        │  • Stats & Analytics  │
+        │  • Contributions      │
+        │  • Recent Activity    │
+        └───────────────────────┘
+                    │
+        ┌───────────┴───────────┐
+        │                       │
+        ▼                       ▼
+┌───────────────┐      ┌───────────────┐
+│   PROFILE     │      │    SUBMIT     │
+│  • KYC Status │      │ Contribution │
+│  • Balance    │      │  • Title      │
+│  • Settings   │      │  • File       │
+└───────────────┘      └───────────────┘
+        │                       │
+        │                       │
+        ▼                       │
+┌───────────────┐              │
+│  KYC VERIFY   │              │
+│  Step 1: Email│              │
+│  Step 2: Doc  │              │
+└───────────────┘              │
+        │                       │
+        │                       │
+        ▼                       ▼
+┌───────────────────────────────────────┐
+│         ADMIN DASHBOARD                │
+│  (admin@example.com / admin123)        │
+│                                        │
+│  ┌──────────────┐  ┌──────────────┐   │
+│  │ KYC Review   │  │ Contribution│   │
+│  │              │  │   Review    │   │
+│  │ • View Docs  │  │             │   │
+│  │ • Approve    │  │ • View File │   │
+│  │ • Reject     │  │ • Approve   │   │
+│  └──────────────┘  └──────────────┘   │
+└───────────────────────────────────────┘
+        │                       │
+        │                       │
+        ▼                       ▼
+┌───────────────┐      ┌───────────────┐
+│  KYC APPROVED │      │  CONTRIBUTION │
+│  User Verified│      │   APPROVED    │
+│               │      │               │
+│  • Can Submit │      │ • Upload IPFS │
+│  • Access All │      │ • Record Hash │
+│    Features   │      │ • Reward 100  │
+│               │      │   CTRI Tokens │
+└───────────────┘      └───────────────┘
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │   MARKETPLACE        │
+                    │  • Browse Items      │
+                    │  • View Details      │
+                    │  • Purchase          │
+                    └───────────────────────┘
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │   PURCHASED CONTENT   │
+                    │  • Access Files       │
+                    │  • Download           │
+                    │  • View in Profile    │
+                    └───────────────────────┘
+```
+
+---
+
+## 👤 **USER JOURNEY: CONTRIBUTOR**
+
+```
+1. LANDING PAGE
+   │
+   ▼
+2. SIGN UP
+   • Name: John Contributor
+   • Email: john@example.com
+   • Password: password123
+   │
+   ▼
+3. LOGIN
+   • Enter credentials
+   • JWT token issued
+   │
+   ▼
+4. PROFILE → KYC VERIFICATION
+   • Email verification (OTP)
+   • Document upload
+   • Status: Pending
+   │
+   ▼
+5. WAIT FOR ADMIN APPROVAL
+   │
+   ▼
+6. KYC APPROVED
+   • Status: Verified
+   • Can now submit contributions
+   │
+   ▼
+7. SUBMIT CONTRIBUTION
+   • Title: "Decentralized Voting System"
+   • Description: "..."
+   • File: PDF document
+   • Status: Pending
+   │
+   ▼
+8. WAIT FOR ADMIN REVIEW
+   │
+   ▼
+9. CONTRIBUTION APPROVED
+   • File uploaded to IPFS
+   • Hash recorded on blockchain
+   • 100 CTRI tokens credited
+   │
+   ▼
+10. VIEW REWARDS
+    • Dashboard shows balance
+    • Contribution status: Accepted
+    • IPFS CID visible
+```
+
+---
+
+## 👨‍💼 **USER JOURNEY: ADMIN**
+
+```
+1. LOGIN AS ADMIN
+   • Email: admin@example.com
+   • Password: admin123
+   │
+   ▼
+2. ADMIN DASHBOARD
+   • Overview stats
+   • Pending reviews
+   │
+   ▼
+3. KYC VERIFICATION TAB
+   • View pending requests
+   • Download documents
+   • Approve/Reject
+   │
+   ▼
+4. CONTRIBUTIONS REVIEW TAB
+   • View pending contributions
+   • Review details
+   • Download files
+   │
+   ▼
+5. APPROVE CONTRIBUTION
+   • File → Pinata IPFS
+   • Hash → Blockchain
+   • Tokens → Contributor
+   │
+   ▼
+6. VERIFY RESULTS
+   • IPFS CID generated
+   • Blockchain transaction confirmed
+   • User notified
+```
+
+---
+
+## 🛒 **USER JOURNEY: BUYER**
+
+```
+1. SIGN UP
+   • Name: Alice Buyer
+   • Email: alice@example.com
+   • Password: password123
+   │
+   ▼
+2. LOGIN
+   │
+   ▼
+3. MARKETPLACE
+   • Browse contributions
+   • View details
+   • Check prices
+   │
+   ▼
+4. PURCHASE CONTRIBUTION
+   • Click "Purchase"
+   • Confirm transaction
+   • Tokens deducted
+   │
+   ▼
+5. ACCESS PURCHASED CONTENT
+   • Profile → Purchased Contributions
+   • View details
+   • Download file
+```
+
+---
+
+## 🔐 **AUTHENTICATION FLOW**
+
+```
+┌─────────────┐
+│   SIGN UP   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│   LOGIN     │
+│  (Email +   │
+│   Password) │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ JWT TOKEN   │
+│  Generated  │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│  PROTECTED  │
+│   ROUTES    │
+│  • Dashboard│
+│  • Profile  │
+│  • Submit   │
+└─────────────┘
+```
+
+---
+
+## 📄 **KYC VERIFICATION FLOW**
+
+```
+┌─────────────────┐
+│  START KYC      │
+│  (Profile Page) │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  STEP 1: EMAIL  │
+│  • Enter Email   │
+│  • Send OTP      │
+│  • Verify OTP   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  STEP 2: UPLOAD │
+│  • Select File   │
+│  • Upload Doc    │
+│  • Submit KYC    │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  STATUS: PENDING│
+│  (Wait for Admin)│
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  ADMIN REVIEWS  │
+│  • View Doc      │
+│  • Approve/Reject│
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    │         │
+    ▼         ▼
+┌───────┐ ┌───────┐
+│VERIFIED│ │REJECTED│
+│  ✓     │ │   ✗    │
+└───────┘ └───────┘
+```
+
+---
+
+## 📤 **CONTRIBUTION SUBMISSION FLOW**
+
+```
+┌─────────────────┐
+│  SUBMIT PAGE    │
+│  • Fill Form     │
+│  • Upload File   │
+│  • Submit        │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  STATUS: PENDING│
+│  (In Database)  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  ADMIN REVIEWS  │
+│  • View Details  │
+│  • Check File    │
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    │         │
+    ▼         ▼
+┌───────┐ ┌───────┐
+│ACCEPT │ │REJECT │
+└───┬───┘ └───┬───┘
+    │         │
+    ▼         ▼
+┌─────────────────┐ ┌──────────┐
+│  IPFS UPLOAD    │ │  REJECTED│
+│  • Pinata API   │ │  • Reason │
+│  • Get CID      │ │  • Notify │
+└────────┬────────┘ └──────────┘
+         │
+         ▼
+┌─────────────────┐
+│ BLOCKCHAIN RECORD│
+│  • Smart Contract│
+│  • Save Hash     │
+│  • Transaction   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  TOKEN REWARD   │
+│  • 100 CTRI     │
+│  • Auto Credit  │
+│  • Update DB    │
+└─────────────────┘
+```
+
+---
+
+## 🛒 **MARKETPLACE FLOW**
+
+```
+┌─────────────────┐
+│  MARKETPLACE    │
+│  Browse Items   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  VIEW DETAILS  │
+│  • Title        │
+│  • Description  │
+│  • Price        │
+│  • Author       │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  PURCHASE       │
+│  • Click Buy    │
+│  • Confirm      │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  TOKEN TRANSFER │
+│  • Deduct Buyer │
+│  • Credit Seller│
+│  • Record DB    │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  ACCESS GRANTED │
+│  • In Profile    │
+│  • Download File│
+│  • View Details │
+└─────────────────┘
+```
+
+---
+
+## 🗄️ **DATA FLOW**
+
+```
+┌─────────────┐
+│   FRONTEND  │
+│  (React)    │
+└──────┬──────┘
+       │ HTTP/REST
+       ▼
+┌─────────────┐
+│   BACKEND   │
+│  (Flask)    │
+└──────┬──────┘
+       │
+   ┌───┴───┐
+   │       │
+   ▼       ▼
+┌─────┐ ┌─────┐
+│SQLite│ │IPFS │
+│  DB  │ │Pinata│
+└─────┘ └──┬──┘
+           │
+           ▼
+    ┌──────────┐
+    │BLOCKCHAIN│
+    │  (Ganache)│
+    └──────────┘
+```
+
+---
+
+## 🔑 **KEY INTEGRATIONS**
+
+```
+┌─────────────────────────────────────────┐
+│         MYCONTRI PLATFORM               │
+│                                         │
+│  ┌──────────┐  ┌──────────┐            │
+│  │  React   │  │  Flask   │            │
+│  │ Frontend │◄─┤  Backend │            │
+│  └──────────┘  └────┬─────┘            │
+│                      │                  │
+│         ┌────────────┼────────────┐    │
+│         │            │            │    │
+│         ▼            ▼            ▼    │
+│    ┌────────┐  ┌────────┐  ┌─────────┐│
+│    │ SQLite │  │ Pinata │  │Blockchain││
+│    │   DB   │  │  IPFS  │  │  Smart   ││
+│    └────────┘  └────────┘  │ Contract ││
+│                             └─────────┘│
+│                                         │
+│  ┌──────────┐  ┌──────────┐            │
+│  │ EmailJS  │  │   JWT    │            │
+│  │   OTP    │  │   Auth   │            │
+│  └──────────┘  └──────────┘            │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 📊 **STATUS TRANSITIONS**
+
+### **KYC Status:**
+```
+None → Pending → Verified
+              ↘ Rejected → (Can Resubmit)
+```
+
+### **Contribution Status:**
+```
+Pending → Accepted → (IPFS Upload) → (Blockchain Record) → (Tokens Rewarded)
+       ↘ Rejected
+       ↘ Duplicate
+```
+
+### **User Flow:**
+```
+Unregistered → Registered → KYC Pending → KYC Verified → Can Submit
+```
+
+---
+
+## 🎯 **DEMO SEQUENCE SUMMARY**
+
+1. **Landing** → Show platform
+2. **Sign Up** → Create account
+3. **KYC** → Verify identity
+4. **Admin Review** → Approve KYC
+5. **Submit** → Upload contribution
+6. **Admin Review** → Approve contribution
+7. **IPFS** → File uploaded
+8. **Blockchain** → Hash recorded
+9. **Rewards** → Tokens credited
+10. **Marketplace** → Browse & purchase
+11. **Dashboard** → View analytics
+
+---
+
+**This diagram shows the complete flow of the MyContri platform! 🚀**
+
+
+
+

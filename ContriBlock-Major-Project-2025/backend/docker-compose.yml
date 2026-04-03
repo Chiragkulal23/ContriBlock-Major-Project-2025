@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  ganache:
+    image: trufflesuite/ganache:v7.9.1
+    ports:
+      - "7545:8545"
+    command: --wallet.seed contri --wallet.totalAccounts 10 --chain.chainId 1337
+
+  backend:
+    build: .
+    environment:
+      - FLASK_SECRET_KEY=dev
+      - JWT_SECRET=dev
+      - DATABASE_URL=sqlite:///dev.db
+      - GANACHE_URL=http://ganache:8545
+      - UPLOAD_FOLDER=/app/backend/uploads
+    ports:
+      - "5001:5001"
+    volumes:
+      - .:/app
+    depends_on:
+      - ganache
+

@@ -1,0 +1,88 @@
+# -------------------------
+# Python / Flask backend
+# -------------------------
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/.venv/
+backend/venv/
+backend/env/
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/.coverage
+backend/instance/
+backend/*.db
+backend/dev.db
+backend/migrations/versions/*.pyc
+
+# Environment files
+backend/.env
+backend/.flaskenv
+
+# File uploads
+backend/uploads/
+backend/uploads/*
+
+# Contract artifacts (if generated in backend)
+backend/contract/
+backend/contracts/*.json
+
+# -------------------------
+# Node / Vite / React frontend
+# -------------------------
+glow-contrib/node_modules/
+glow-contrib/dist/
+glow-contrib/.vite/
+glow-contrib/.env
+glow-contrib/.env.local
+glow-contrib/.env.production
+glow-contrib/.eslintcache
+
+# Frontend build artifacts
+glow-contrib/build/
+glow-contrib/*.log
+
+# -------------------------
+# Global environment ignores
+# -------------------------
+*.env
+*.log
+*.tmp
+*.DS_Store
+Thumbs.db
+
+# -------------------------
+# IDE / Editor Files
+# -------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------
+# Blockchain / Ganache
+# -------------------------
+blockchain/build/
+blockchain/artifacts/
+blockchain/cache/
+blockchain/.env
+
+# Private keys should NEVER be committed
+DEPLOYER_PRIVATE_KEY
+contractAddress.json
+abi.json
+
+# -------------------------
+# Python Bytecode (global)
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+
+# -------------------------
+# Docker / Misc
+# -------------------------
+*.pid
+*.bak
+*.tar
+*.gz
